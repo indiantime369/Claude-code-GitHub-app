@@ -1,0 +1,4 @@
+// Shared build settings. Your Spotify client ID lives in Secrets.xcconfig
+// (git-ignored). Copy Secrets.example.xcconfig to get started.
+SPOTIFY_CLIENT_ID = REPLACE_WITH_YOUR_SPOTIFY_CLIENT_ID
+#include? "Secrets.xcconfig"

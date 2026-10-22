@@ -1,0 +1,10 @@
+# Xcode
+*.xcodeproj/
+xcuserdata/
+DerivedData/
+build/
+*.xcworkspace/
+.DS_Store
+
+# Local secrets (copy Config/Secrets.example.xcconfig)
+Config/Secrets.xcconfig
