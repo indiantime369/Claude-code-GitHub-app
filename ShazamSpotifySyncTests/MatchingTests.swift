@@ -86,13 +86,13 @@ final class TrackMatcherTests: XCTestCase {
 
 final class CSVImportTests: XCTestCase {
     func testParsesShazamExportWithPreamble() throws {
-        let csv = """
-        Shazam Library\r
-        Index,TagTime,Title,Artist,URL,TrackKey\r
-        1,2024-05-01,"Song, With Comma",Artist A,https://www.shazam.com/track/1,1\r
-        2,2024-05-02,"He said ""hi""",Artist B,https://www.shazam.com/track/2,2\r
-        3,2024-05-03,,Missing Title,,3\r
-        """
+        let csv = [
+            "Shazam Library",
+            "Index,TagTime,Title,Artist,URL,TrackKey",
+            "1,2024-05-01,\"Song, With Comma\",Artist A,https://www.shazam.com/track/1,1",
+            "2,2024-05-02,\"He said \"\"hi\"\"\",Artist B,https://www.shazam.com/track/2,2",
+            "3,2024-05-03,,Missing Title,,3",
+        ].joined(separator: "\r\n")
         let tracks = try ShazamCSVImporter.parse(csv)
         XCTAssertEqual(tracks.count, 2)
         XCTAssertEqual(tracks[0].title, "Song, With Comma")
